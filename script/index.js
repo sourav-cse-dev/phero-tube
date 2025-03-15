@@ -1,3 +1,13 @@
+const showLoader = () => {
+  document.getElementById("loader").classList.remove("hidden");
+  document.getElementById("videoContainer").classList.add("hidden");
+};
+
+const hideLoader = () => {
+  document.getElementById("loader").classList.add("hidden");
+  document.getElementById("videoContainer").classList.remove("hidden");
+};
+
 function removeActiveClass() {
   const activeButtons = document.getElementsByClassName("active");
   for (let btn of activeButtons) {
@@ -14,15 +24,8 @@ function loadCategories() {
     .then((data) => displayCategories(data.categories));
 }
 
-const loadVideoDetails = (videoId) => {
-  const url = `https://openapi.programming-hero.com/api/phero-tube/video/${videoId}`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => displayVideoDetails(data.video));
-  //console.log(videoId);
-};
-
 function loadVideos(searchText = "") {
+  showLoader();
   // fetching the videos data
   fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`)
     .then((response) => response.json())
@@ -33,9 +36,16 @@ function loadVideos(searchText = "") {
     });
 }
 
-const loadCategoryVideos = (id) => {
-  const url = `https://openapi.programming-hero.com/api/phero-tube/category/${id}`;
+const loadVideoDetails = (videoId) => {
+  const url = `https://openapi.programming-hero.com/api/phero-tube/video/${videoId}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayVideoDetails(data.video));
+};
 
+const loadCategoryVideos = (id) => {
+  showLoader();
+  const url = `https://openapi.programming-hero.com/api/phero-tube/category/${id}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
@@ -74,6 +84,7 @@ const displayVideos = (videos) => {
         <p class="text-2xl font-bold">Oops!! Sorry, There is no content here</p>
       </div>
     `;
+    hideLoader();
     return;
   }
   videos.forEach((video) => {
@@ -109,6 +120,7 @@ const displayVideos = (videos) => {
     `;
     //append the element
     videoContainer.append(videoCard);
+    hideLoader();
   });
 };
 

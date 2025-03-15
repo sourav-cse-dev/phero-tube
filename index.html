@@ -45,25 +45,31 @@
         </div>
       </section>
 
+      <section id="loader" class="loader text-center py-10 hidden">
+        <span class="loading loading-dots loading-xl"></span>
+      </section>
+
       <section id="videoContainer" class="container w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         <!-- dynamic video card section -->
       </section>
-    </main>
 
-    <div>
-      <!-- Open the modal using ID.showModal() method -->
-      <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
-      <dialog id="videoDetails" class="modal">
-        <div class="modal-box">
-          <div id="videoDetailsContainer"></div>
-          <div class="modal-action">
-            <form method="dialog">
-              <!-- if there is a button in form, it will close the modal -->
-              <button class="btn">Close</button>
-            </form>
-          </div>
+      <section>
+        <div>
+          <!-- Open the modal using ID.showModal() method -->
+          <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+          <dialog id="videoDetails" class="modal">
+            <div class="modal-box">
+              <div id="videoDetailsContainer"></div>
+              <div class="modal-action">
+                <form method="dialog">
+                  <!-- if there is a button in form, it will close the modal -->
+                  <button class="btn">Close</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
         </div>
-      </dialog>
-    </div>
+      </section>
+    </main>
   </body>
 </html>
