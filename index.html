@@ -7,6 +7,12 @@
     <link href="./styles/output.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/b6d1c08c2a.js" crossorigin="anonymous"></script>
     <script src="./script/index.js" defer></script>
+    <style>
+      .active {
+        background-color: #ff1f3d;
+        color: white;
+      }
+    </style>
   </head>
   <body>
     <!-- nav section -->
@@ -27,7 +33,7 @@
       <section id="categoryContainer" class="flex py-5 justify-center gap-5">
         <!-- dynamic button section -->
         <div>
-          <button class="btn btn-sm hover:bg-[#FF1F3D] hover:text-white">All</button>
+          <button id="btnAll" class="btn btn-sm hover:bg-[#FF1F3D] hover:text-white" onclick="loadVideos()">All</button>
         </div>
       </section>
 
@@ -35,5 +41,22 @@
         <!-- dynamic video card section -->
       </section>
     </main>
+
+    <div>
+      <!-- Open the modal using ID.showModal() method -->
+      <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+      <dialog id="videoDetails" class="modal">
+        <div class="modal-box">
+          <div id="videoDetailsContainer">
+          </div>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+    </div>
   </body>
 </html>
